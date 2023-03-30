@@ -1,3 +1,7 @@
+/* eslint-disable */
+/* prettier-ignore */
+// @ts-nocheck
+
 const { src, dest, series, task } = require('gulp');
 const del = require('del');
 const ts = require('gulp-typescript');

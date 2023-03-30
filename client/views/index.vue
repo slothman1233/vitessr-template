@@ -13,7 +13,6 @@
 <script lang="ts">
   import setupData from '@/common/utils/libs/setupData';
   import { getrandom } from '@/services/randomDataService/randomData';
-
   import { ResponseData } from 'publicommon/utils/http';
   import { propType } from './model';
 
