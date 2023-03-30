@@ -11,12 +11,10 @@
 <script lang="ts">
   import { getConfigModel } from '@/common/utils/libs/configmodel';
   import { myMeta } from '@/common/utils/libs/meta';
-  import HelloWorld from 'comps/HelloWorld.vue';
   import { ElNotification } from 'element-plus';
-
+  type propType = {};
   export default defineComponent({
     name: 'ViewsHome',
-    components: { HelloWorld },
     mixins: [myMeta],
     // 1、使用 head 方法
     head() {
@@ -46,7 +44,7 @@
     //   console.log(to, from, next);
     // },
 
-    setup(prop) {
+    setup(prop: propType) {
       nextTick(() => {
         ElNotification({
           title: 'Warning',

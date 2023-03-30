@@ -5,7 +5,7 @@ const nodemon = require('gulp-nodemon');
 const replace = require('gulp-replace');
 const tsProject = ts.createProject('tsconfig.json');
 const ENV = process.env.NODE_ENV || 'prod';
-const babel = require("gulp-babel");
+const babel = require('gulp-babel');
 // var gtb = require('gulp-typescript-babel');
 function clean(cb) {
   return del(['dist', 'run', 'vitedist']).then(() => {
@@ -15,18 +15,20 @@ function clean(cb) {
 
 // 输出 js 到 dist目录
 function toJs() {
-  return src(['src/**/*.ts', 'src/**/*.js', '!src/wwwroot/**/*'])
-    .pipe(tsProject())
-    .pipe(
-			babel({
-				presets: ["@babel/env"]
-			})
-		)
+  return (
+    src(['src/**/*.ts', 'src/**/*.js', '!src/wwwroot/**/*'])
+      .pipe(tsProject())
+      .pipe(
+        babel({
+          presets: ['@babel/env'],
+        }),
+      )
 
-    // .pipe(gtb({incremental: true, configFile: 'tsconfig.json'},
-    //         {presets: ['es2015']}))
-    .pipe(replace('../publicommon', `publicommon`))
-    .pipe(dest('dist'));
+      // .pipe(gtb({incremental: true, configFile: 'tsconfig.json'},
+      //         {presets: ['es2015']}))
+      .pipe(replace('../publicommon', `publicommon`))
+      .pipe(dest('dist'))
+  );
 }
 
 function tostaticfile() {
@@ -45,11 +47,13 @@ function topm2config() {
 
 function topublicommon() {
   return src(['publicommon/**/*.ts'])
-  .pipe(tsProject()).pipe(
-    babel({
-      presets: ["@babel/env"]
-    })
-  ).pipe(dest('dist/publicommon'));
+    .pipe(tsProject())
+    .pipe(
+      babel({
+        presets: ['@babel/env'],
+      }),
+    )
+    .pipe(dest('dist/publicommon'));
 }
 
 function tostaticwwwroot() {

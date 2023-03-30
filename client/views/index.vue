@@ -13,12 +13,12 @@
 <script lang="ts">
   import setupData from '@/common/utils/libs/setupData';
   import { getrandom } from '@/services/randomDataService/randomData';
-  import HelloWorld from 'comps/HelloWorld.vue';
+
   import { ResponseData } from 'publicommon/utils/http';
+  import { propType } from './model';
 
   export default defineComponent({
     name: 'ViewsHome',
-    components: { HelloWorld },
 
     // beforeRouteEnter(to, from, next) {
 
@@ -28,7 +28,7 @@
     //     next();
     //   }
     // },
-    async setup(prop) {
+    async setup(prop: propType) {
       // console.log(import.meta.glob('/**/*.vue'));
       // const { proxy } = getCurrentInstance();
       // const routers = proxy.$router.currentRoute.value;

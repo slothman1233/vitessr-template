@@ -11,11 +11,10 @@
 <script lang="ts">
   import { propType, staticDataModel } from './model';
   import cpmDemo from './components/cpmDemo/index.vue';
-  import HelloWorlds from '@/components/HelloWorlds/index.vue';
   export default defineComponent({
     name: 'qsList',
-    components: { cpmDemo, HelloWorlds },
-    setup(props: propType, ctx) {
+    components: { cpmDemo },
+    setup(props: propType) {
       const staticData: staticDataModel = reactive({
         ...props,
         list: [

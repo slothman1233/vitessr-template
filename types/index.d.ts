@@ -31,12 +31,6 @@ declare type commonObject<T> = {
   [key: string]: T;
 };
 
-declare module '*.vue' {
-  import { defineComponent } from 'vue';
-  const Component: ReturnType<typeof defineComponent>;
-  export default Component;
-}
-
 // declare module 'path-browserify'
 // declare module 'nprogress'
 declare module '@iconify/vue';
