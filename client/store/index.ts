@@ -1,6 +1,8 @@
 import type { App, InjectionKey } from 'vue';
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
 import { RootStateTypes } from './interface/index';
+// 引入vuex持久化方法createPersistedState
+import createPersistedState from 'vuex-persistedstate';
 // @ts-ignore
 const modulesGlob = import.meta.globEager('./**/*.ts'),
   modules: any = {};
@@ -23,10 +25,22 @@ const key: InjectionKey<Store<RootStateTypes>> = Symbol();
 // Create vuex store
 // set modules getters and strict
 // https://next.vuex.vuejs.org/
+
+const PersistedState = [];
+
+if (!import.meta.env.SSR) {
+  PersistedState.push(
+    createPersistedState({
+      key: 'persistence_store_client',
+    }),
+  );
+}
+
 const store = createStore<RootStateTypes>({
   modules,
   getters,
   strict: false,
+  plugins: PersistedState,
 });
 
 // 将类型注入useStore
