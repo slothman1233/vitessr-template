@@ -39,13 +39,11 @@
 <script lang="ts">
   import { ListType } from 'element-plus/es/components/upload/src/upload.type';
   import { cloneDeep } from 'lodash';
-
-  export type listTyp = ListType | 'fileList';
   // declare var HandleExceedType: (files: File[], fileList: any) => void;
   //(files: File[], fileList: any) => void
   export type propType = {
     //上传显示类型
-    listType?: listTyp;
+    listType?: string;
     //是否多图上传
     multiple?: boolean;
     //允许上传的最大数量
@@ -110,7 +108,7 @@
       listType: {
         require: false,
         default: 'fileList',
-        type: String as PropType<listTyp>,
+        type: String,
       },
       fileList: {
         require: false,
@@ -120,7 +118,6 @@
       },
       disabled: {
         require: false,
-        // eslint-disable-next-line vue/require-valid-default-prop
         default: false,
         type: Boolean,
       },
@@ -188,6 +185,7 @@
         dialogVisible: false,
         ...props,
       });
+
       const refData = toRefs(staticData);
 
       //上传成功后的回调

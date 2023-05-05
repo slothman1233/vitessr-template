@@ -22,10 +22,6 @@ Object.keys(modulesGlob).map((key) => {
 //  定义注入类型 InjectionKey 将store安装到Vue应用程序时提供类型,将类型传递InjectionKey给useStore方法
 const key: InjectionKey<Store<RootStateTypes>> = Symbol();
 
-// Create vuex store
-// set modules getters and strict
-// https://next.vuex.vuejs.org/
-
 const PersistedState = [];
 
 if (!import.meta.env.SSR) {
@@ -36,6 +32,9 @@ if (!import.meta.env.SSR) {
   );
 }
 
+// Create vuex store
+// set modules getters and strict
+// https://next.vuex.vuejs.org/
 const store = createStore<RootStateTypes>({
   modules,
   getters,

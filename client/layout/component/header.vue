@@ -27,6 +27,7 @@
       const state = reactive<State>({
         isCollapseWidth: false,
       });
+
       // watch(
       //   () => store.state.themeConfig.isCollapse,
       //   (newProps, oldProps) => {

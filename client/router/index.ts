@@ -20,12 +20,26 @@ const Layout = () => import('@/layout/index.vue');
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/index',
     component: Layout,
     children: [
       {
+        path: '/index',
+        component: () => import('@/views/index.vue'),
+        name: 'index',
+        meta: {
+          auth: ['admin', 'test'],
+          icon: 'carbon:rule-test',
+          isAffix: true,
+          isHide: false,
+          isKeepAlive: true,
+          title: '首页111',
+          index: '1',
+        },
+      },
+      {
         path: '/home',
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/home/index.vue'),
         name: 'Home',
         meta: {
           auth: ['admin', 'test'],
@@ -39,7 +53,7 @@ const routes = [
       },
       {
         path: '/upload',
-        component: () => import('@/views/uploadfile.vue'),
+        component: () => import('@/views/uploadfile/index.vue'),
         name: 'upload',
         meta: {
           auth: ['admin', 'test'],
@@ -53,7 +67,7 @@ const routes = [
       },
       {
         path: '/costom',
-        component: () => import('@/views/costomrefdom.vue'),
+        component: () => import('@/views/costomrefdom/index.vue'),
         name: 'costomrefdom',
         meta: {
           auth: ['admin', 'test'],
@@ -65,17 +79,9 @@ const routes = [
           index: '1',
         },
       },
-    ],
-  },
-  {
-    path: '/index',
-    redirect: '/index',
-    component: Layout,
-    children: [
       {
-        path: '/index',
-        component: () => import('@/views/index.vue'),
-        name: 'index',
+        path: '/qs',
+        component: () => import('@/views/qs/index.vue'),
         meta: {
           auth: ['admin', 'test'],
           icon: 'carbon:rule-test',

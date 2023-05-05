@@ -43,11 +43,13 @@
   import { fetchRef } from '@/common/utils/libs/customRef';
   import { getrandom } from '@/services/randomDataService/randomData';
   import { ElMessage } from 'element-plus';
+  import { defineComponent, reactive, toRefs } from 'vue';
+  import { propType } from './model';
   // import UploadImg from '@/components/UploadImg/index.vue';
   export default defineComponent({
     name: 'uploadFile',
 
-    async setup(prop) {
+    async setup(props: propType, ctx) {
       let fileList = [
         {
           name: 'food.jpeg',
@@ -123,7 +125,6 @@
 
 <style lang="less">
   body {
-    color: @FontColor_1;
     display: flex;
   }
 </style>

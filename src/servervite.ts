@@ -116,7 +116,6 @@ export default async function createServer(app: koa<koa.DefaultState, koa.Defaul
     app.use(koaConnect(vites.middlewares));
 
     routes = entryServer = await vites.ssrLoadModule(resolve('./client/entry-server.ts'));
-
     manifest = {};
   } else {
     /**

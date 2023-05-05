@@ -19,6 +19,8 @@ import env from '@/common/config/dev';
 
 import { setupConfigmodel } from './common/utils/libs/configmodel';
 
+import { setupAntd } from './common/utils/libs/antd';
+
 export function createApp(ssr: boolean) {
   const app = ssr ? createSSRApp(App) : _createApp(App);
 
@@ -28,7 +30,9 @@ export function createApp(ssr: boolean) {
 
   setupElementPlus(app); // 引入element组件
 
-  setupVant(app); // 引入vant组件
+  setupVant(app); // 引入 vant组件
+
+  setupAntd(app); //引入 antd组件
 
   setupGlobalCom(app); // 注册全局公用组件
 

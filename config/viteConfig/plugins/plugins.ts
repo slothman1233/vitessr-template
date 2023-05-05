@@ -14,7 +14,11 @@ import configureServerPlugin from './configureServerPlugin';
 import viteCompression from 'vite-plugin-compression';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import {
+  ElementPlusResolver,
+  AntDesignVueResolver,
+  VantResolver,
+} from 'unplugin-vue-components/resolvers';
 // 以下钩子在服务器启动时被调用：
 // options
 // buildStart

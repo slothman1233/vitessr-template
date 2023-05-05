@@ -1,5 +1,5 @@
-import { defineComponent, DefineComponent } from 'vue';
 declare module '*.vue' {
+  import { defineComponent, DefineComponent } from 'vue';
   const Component: ReturnType<typeof defineComponent>;
 
   const component: DefineComponent<{}, {}, any>;
@@ -16,11 +16,8 @@ declare module '*.vue' {
 }
 
 declare module '*.vue' {
+  import { DefineComponent } from 'vue';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
   const component: DefineComponent<{}, {}, any>;
   export default component;
-}
-
-declare module '*.vue' {
-  const Component: ReturnType<typeof defineComponent>;
-  export default Component;
 }

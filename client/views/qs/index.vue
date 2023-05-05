@@ -2,10 +2,13 @@
   <div>qslist</div>
   <div> 12321 </div>
   <cpmDemo></cpmDemo>
-  <u-button type="primary">主要按钮 {{ show }}</u-button>
-  <u-action-sheet :list="list"></u-action-sheet>
-  <u-action-sheet :list="list" v-model="show"></u-action-sheet>
-  <u-button @click="show = true">打开ActionSheet</u-button>
+
+  <HelloWorlds></HelloWorlds>
+  <van-rate></van-rate>
+
+  <VanButton>asdfasd</VanButton>
+
+  <a-button>asdfa</a-button>
 </template>
 
 <script lang="ts">
@@ -14,7 +17,7 @@
   export default defineComponent({
     name: 'qsList',
     components: { cpmDemo },
-    setup(props: propType) {
+    setup(props: propType, ctx) {
       const staticData: staticDataModel = reactive({
         ...props,
         list: [
@@ -44,7 +47,6 @@
 
 <style lang="less">
   body {
-    color: @FontColor_1;
     display: flex;
   }
 </style>

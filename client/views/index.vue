@@ -2,18 +2,22 @@
   <div> {{ title }} </div>
   <div>{{ info }}</div>
   <div>{{ infos }}</div>
-  <img src="/assets/image/logo.png" />
+  <img src="/assets/image/logo.png" style="width: 50px" />
   <HelloWorld :msg="info"></HelloWorld>
   <div>
     <SvgIcon icon-class="a-bug"></SvgIcon>
     <SvgIcon icon-class="projectManage"></SvgIcon>
   </div>
+
+  <VanButton type="primary">asdfasd</VanButton>
+
+  <a-button type="danger">asdfa</a-button>
 </template>
 
 <script lang="ts">
-  import setupData from '@/common/utils/libs/setupData';
-  import { getrandom } from '@/services/randomDataService/randomData';
-  import { ResponseData } from 'publicommon/utils/http';
+  // import setupData from '@/common/utils/libs/setupData';
+  // import { getrandom } from '@/services/randomDataService/randomData';
+  // import { ResponseData } from 'publicommon/utils/http';
   import { propType } from './model';
 
   export default defineComponent({
@@ -27,19 +31,19 @@
     //     next();
     //   }
     // },
-    async setup(prop: propType) {
+    async setup(props: propType, ctx) {
       // console.log(import.meta.glob('/**/*.vue'));
       // const { proxy } = getCurrentInstance();
       // const routers = proxy.$router.currentRoute.value;
 
-      const data = (await getrandom()) as ResponseData<any>;
+      // const data = (await getrandom()) as ResponseData<any>;
 
       return {
-        title: data.bodyMessage.name,
+        title: 'data.bodyMessage.name',
         //默认值   上面info 会替换掉这个info的值
         info: '3',
         infos: {},
-        data,
+        // data,
       };
     },
   });
@@ -47,7 +51,6 @@
 
 <style lang="less">
   body {
-    color: @FontColor_1;
     display: flex;
   }
 </style>

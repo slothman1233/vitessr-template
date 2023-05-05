@@ -10,11 +10,12 @@
 <script lang="ts">
   import { fetchRef, useDebouncedRef } from '@/common/utils/libs/customRef';
   import { getrandom, getrandom1 } from '@/services/randomDataService/randomData';
+  import { propType } from './model';
 
   export default defineComponent({
     name: 'costomRef',
 
-    setup(prop) {
+    setup(props: propType, ctx) {
       let asdata = fetchRef(getrandom);
       setTimeout(() => {
         asdata.value = getrandom1;
@@ -32,7 +33,6 @@
 
 <style lang="less">
   body {
-    color: @FontColor_1;
     display: flex;
   }
 </style>

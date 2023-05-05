@@ -8,6 +8,7 @@
   interface Props {
     iconClass: string;
     className: string;
+    iconColor: string;
   }
 
   export default defineComponent({
