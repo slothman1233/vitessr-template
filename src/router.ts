@@ -49,7 +49,11 @@ async function fileScan(filepath: string) {
 
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const module = require(paths).default;
-      paths = paths.replace(ctrPath, '').replace(paths.substr(paths.lastIndexOf('\\')), '');
+      if (paths.indexOf('\\') >= 0) {
+        paths = paths.replace(ctrPath, '').replace(paths.substr(paths.lastIndexOf('\\')), '');
+      } else {
+        paths = paths.replace(ctrPath, '').replace(paths.substr(paths.lastIndexOf('/')), '');
+      }
       if (module) {
         modules.push([module, paths]);
       }
